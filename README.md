@@ -5,7 +5,7 @@ As part of this task I created script `islands.py` that counts number of islands
 Cell considered to be part of island if it has island's cell as neighbour (up, down, left, right, but not diagonal neighbour). Time complexity: O(number of cells * number of rows), because script visit each cell of matrix only once (in terms of fully processing cell; visit and check if it is visited can be done multiple times).
 
 ## Usage
-
+Created and tested in Python 3.9.13.
 1. Run a script:
 ```bash
 $ python islands.py
