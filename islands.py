@@ -9,10 +9,11 @@ it is visited can be done multiple times).
 
 Usage
 -----
-1. Set shape of matrix in form of '{number of rows} {number of cells}' after "Set shape of matrix:"
-2. Set matrix after "Set matrix:". Cells in a row should be separated by 1 whitespace, each new 
+1. Run a script with `$ python islands.py` command
+2. Set shape of matrix in form of '{number of rows} {number of cells}' after "Set shape of matrix:"
+3. Set matrix after "Set matrix:". Cells in a row should be separated by 1 whitespace, each new 
 row should start at a new line (hit Enter, or insert previously copied multiline matrix altogether).
-
+4. Script would print message: "Provided matrix has [number] islands." with number of islands.
 
 Example
 -------
