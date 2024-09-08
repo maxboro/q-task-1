@@ -41,36 +41,46 @@ def count_islands(matrix: List[List[int]]) -> int:
     if not matrix or not matrix[0]:
         return 0
 
-    rows, cols = len(matrix), len(matrix[0])
-    visited = [[False for _ in range(cols)] for _ in range(rows)]
-    
-    def dfs(r: int, c: int) -> None:
-        """Perform iteration of depth first search."""
+    n_rows, n_cols = len(matrix), len(matrix[0])
+    visited = [[False for _ in range(n_cols)] for _ in range(n_rows)]
+   
+    def dfs(row_index: int, col_index: int) -> None:
+        """Perform iteration of depth first search for provided cell adress."""
 
         # If out of bounds, or it's ocean, or already visited, return
-        if r < 0 or c < 0 or r >= rows or c >= cols or matrix[r][c] == 0 or visited[r][c]:
+        if (row_index < 0
+            or col_index < 0
+            or row_index >= n_rows
+            or col_index >= n_cols
+            or matrix[row_index][col_index] == 0
+            or visited[row_index][col_index]):
             return
         
         # Mark the cell as visited
-        visited[r][c] = True
+        visited[row_index][col_index] = True
 
         # Visit all 4 possible directions
         directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
-        for dr, dc in directions:
-            dfs(r + dr, c + dc)
+        for row_direction, col_direction in directions:
+            dfs(row_index + row_direction, col_index + col_direction)
     
     island_count = 0
-    for i in range(rows):
-        for j in range(cols):
-            if matrix[i][j] == 1 and not visited[i][j]:
+    for row_index in range(n_rows):
+        for col_index in range(n_cols):
+            if matrix[row_index][col_index] == 1 and not visited[row_index][col_index]:
                 # Initiate DFS when found a new island
-                dfs(i, j)
+                dfs(row_index, col_index)
                 island_count += 1
 
     return island_count
 
 
-if __name__ == "__main__":
+def main():
+    """Run all."""
     matrix = get_matrix()
     n_islands = count_islands(matrix)
     print(f"Provided matrix has {n_islands} islands.")
+
+
+if __name__ == "__main__":
+    main()
